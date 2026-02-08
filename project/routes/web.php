@@ -8,7 +8,13 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'tasks' => [
+            // 'Go to the market',
+            // 'Walk the dog',
+            // 'Watch a video turtorial',
+        ]
+    ]);
 });
 
 # short hand for routes that only return a view
