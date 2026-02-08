@@ -12,4 +12,9 @@ Route::get('/about', function () {
 });
 
 # short hand for routes that only return a view
-Route::view('/contact','contact');
+Route::view('/contact','contact', [
+    'greeting' => 'Hello :name, welcome to the contact page!',
+    # 'person' => 'Cornel',
+    // 'person'=> request('person')
+    'person'=> request('person', 'World')
+]);
