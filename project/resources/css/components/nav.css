@@ -1,0 +1,44 @@
+@layer components {
+/* NAV Container Glass Effect */
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(0, 123, 255, 0.15); /* subtle blue glass */
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.2);
+}
+
+/* NAV Links Base Style */
+nav a {
+  color: #e0f0ff; /* icy soft blue text */
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: 12px;
+  background: rgba(0, 123, 255, 0.25);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+/* NAV Link Hover */
+nav a:hover {
+  background: rgba(0, 123, 255, 0.45);
+  box-shadow: 0 12px 32px rgba(0, 123, 255, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* Optional: Active / Click Effect */
+nav a:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+}

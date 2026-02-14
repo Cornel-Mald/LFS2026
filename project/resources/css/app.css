@@ -1,4 +1,12 @@
 @import 'tailwindcss';
+/* Tailwind layer declare */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Global componet style loading */
+@import './components/utilities.css';
+@import './components/nav.css';
+@import './components/card.css';
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';

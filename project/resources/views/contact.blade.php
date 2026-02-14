@@ -1,5 +1,5 @@
 <x-layout title="Contact">
-        <h1>Contact the Laravel Application</h1>
+        <h1 class="text-2xl font-bold mb-4">Contact the Laravel Application</h1>
 
     <x-card>
         <p>This is the contact page.</p>

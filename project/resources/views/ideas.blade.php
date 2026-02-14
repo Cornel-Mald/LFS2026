@@ -1,9 +1,9 @@
 <x-layout title="Welcome">
-    <h1>Welcome to the Laravel Application!</h1>
+    <h1 class="text-2xl font-bold mb-4">Welcome to the Laravel Application!</h1>
     <x-card class="max-w-400">
         <p>This is the ideas page.</p>
     </x-card>
-    <form method="POST" action="/ideas">
+    <form method="POST" action="/ideas" class="p-6">
         @csrf
         <div class="col-span-full">
             <label for="idea" class="block text-sm/6 font-medium text-white">New Idea</label>
@@ -20,10 +20,10 @@
         </div>
     </form>
     @if (count($ideas))
-       <div class="mt-6 text-white">
+       <div class="mt-6 text-white p-6 rounded-lg bg-gray-800">
         <h2 class="font-bold"> Your Ideas</h2>
 
-        <ul class="mt-6">
+        <ul class="mt-6 list-disc pl-5 mt-4 space-y-1 text-gray-200">
             @foreach ($ideas as $idea)
                 <li class="text-sm"> {{ $idea }} </li>
             @endforeach

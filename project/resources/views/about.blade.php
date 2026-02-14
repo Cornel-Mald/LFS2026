@@ -1,5 +1,5 @@
 <x-layout title="About">
-        <h1>About the Laravel Application</h1>
+        <h1 class="text-2xl font-bold mb-4">About the Laravel Application</h1>
     <x-card>
         <p>This is the about page.</p>
     </x-card>
