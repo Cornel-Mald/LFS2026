@@ -18,9 +18,31 @@ Route::get('/about', function () {
 });
 
 # short hand for routes that only return a view
-Route::view('/contact','contact', [
+Route::view('/contact', 'contact', [
     'greeting' => 'Hello :name, welcome to the contact page!',
     # 'person' => 'Cornel',
     // 'person'=> request('person')
-    'person'=> request('person', 'World')
+    'person' => request('person', 'World')
 ]);
+
+Route::get('/ideas', function () {
+    $ideas = session()->get('ideas', []);
+
+    return view('ideas', [
+	    'ideas' => $ideas,
+    ]);
+});
+
+Route::post('/ideas', function () {
+    $idea = request('idea');
+
+    session()->push('ideas', $idea);
+
+    return redirect('/ideas');
+});
+
+Route::get('/delete-ideas', function() {
+    session()->forget('ideas');
+
+    return redirect('/ideas');
+});
