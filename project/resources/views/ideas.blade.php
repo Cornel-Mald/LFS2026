@@ -19,15 +19,17 @@
 
         </div>
     </form>
-    @if (count($ideas))
+    {{-- @if (count($ideas)) --}}
+    @if ($ideas->count())
        <div class="mt-6 text-white p-6 rounded-lg bg-gray-800">
         <h2 class="font-bold"> Your Ideas</h2>
 
         <ul class="mt-6 list-disc pl-5 mt-4 space-y-1 text-gray-200">
             @foreach ($ideas as $idea)
-                <li class="text-sm"> {{ $idea }} </li>
+                {{-- <li class="text-sm"> {{ $idea }} </li> --}}
+                <li class="text-sm"> {{ $idea->description }} </li>
             @endforeach
-        <uL>
-    </div>
+        </ul>
+        </div>
     @endif
 </x-layout>

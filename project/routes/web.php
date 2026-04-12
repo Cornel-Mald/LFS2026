@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Models\idea;
+// use Illuminate\Support\Facades\DB;
+// use Inertia\Inertia;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,7 +28,19 @@ Route::view('/contact', 'contact', [
 ]);
 
 Route::get('/ideas', function () {
-    $ideas = session()->get('ideas', []);
+    // $ideas = session()->get('ideas', []);
+
+    // $ideas = \Illuminate\Support\Facades\DB::table('ideas')->get();
+    
+    // $ideas = idea::all();
+    // $ideas = idea::find(1);
+    $ideas = idea::where('state', 'pending')->get();
+
+    // dd($ideas);
+    
+    // return $ideas;
+    // return $ideas[0];
+    // return $ideas[0]->description;
 
     return view('ideas', [
 	    'ideas' => $ideas,
@@ -34,9 +48,14 @@ Route::get('/ideas', function () {
 });
 
 Route::post('/ideas', function () {
-    $idea = request('idea');
+    // $idea = request('idea');
 
-    session()->push('ideas', $idea);
+    // session()->push('ideas', $idea);
+
+    idea::create([
+        'description' => request('idea'),
+        'state' => 'pending',
+    ]);
 
     return redirect('/ideas');
 });
