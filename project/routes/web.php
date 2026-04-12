@@ -34,7 +34,13 @@ Route::get('/ideas', function () {
     
     // $ideas = idea::all();
     // $ideas = idea::find(1);
-    $ideas = idea::where('state', 'pending')->get();
+    // $ideas = idea::where('state', 'pending')->get();
+    $ideas = idea::query()
+        ->when(request('state'), function($query, $state) {
+            // dd($state);
+            $query->where('state', $state);
+        })
+        ->get();
 
     // dd($ideas);
     
