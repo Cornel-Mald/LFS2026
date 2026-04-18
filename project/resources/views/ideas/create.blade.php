@@ -3,7 +3,7 @@
     <x-card class="max-w-400">
         <p>This is the ideas page.</p>
     </x-card>
-        <form method="POST" action="/ideas" class="p-6">
+    <form method="POST" action="/ideas" class="p-6">
         @csrf
         <div class="col-span-full">
             <label for="description" class="block text-sm/6 font-medium text-white">Create New Idea</label>
@@ -19,19 +19,4 @@
 
         </div>
     </form>
-    {{-- @if (count($ideas)) --}}
-    @if ($ideas->count())
-       <div class="mt-6 text-white p-6 rounded-lg bg-gray-800">
-        <h2 class="font-bold"> Your Ideas</h2>
-
-        <ul class="mt-6 list-disc pl-5 mt-4 space-y-1 text-gray-200">
-            @foreach ($ideas as $idea)
-                {{-- <li class="text-sm"> {{ $idea }} </li> --}}
-                <a href="/ideas/{{ $idea->id }}" class="text-sm"> {{ $idea->description }} </a>
-            @endforeach
-        </ul>
-        </div>
-    @else
-        <p>No ideas yet. <a href="/ideas/create" class="udnerline">Create a new one</a></p>
-    @endif
 </x-layout>
